@@ -1,5 +1,13 @@
-export interface CreateCustomersDto {
+import { IsString, IsEmail, IsOptional } from 'class-validator';
+
+export class CreateCustomerDto {
+  @IsString()
   name: string;
+
+  @IsEmail()
   email: string;
-  phone: string;
+
+  @IsOptional()
+  @IsString()
+  phone?: string;
 }
